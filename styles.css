@@ -13,13 +13,6 @@ body, a:link, a:visited, a:active{
   padding:5px 12px;
   float:right;
 }
-.addTacoDancerButton{
-  padding:5px 12px;
-  float: left;
-  position: absolute;
-  top:0.5px;
-}
-
 .topbar{
   height:32px;
   background-color: #555;
@@ -32,9 +25,33 @@ body, a:link, a:visited, a:active{
   border-radius:10px;
   position:absolute;
 }
-
 .dancer2 {
   border:10px solid blue;
   border-radius:10px;
   position:absolute;
+  animation: shake 1.0s cubic-bezier(.36,.07,.19,.97) both;
+  animation-iteration-count:infinite;
+}
+.dancer3 {
+  /* background-image: '🌮'; */
+  border:10px solid rgb(128, 202, 245);
+  border-radius:10px;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
 }

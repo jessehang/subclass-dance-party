@@ -31,22 +31,22 @@ $(document).ready(function() {
 
   });
 
-  $('.addDancerButton2').on('click', function(event) {
-    var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
+  // $('.addDancerButton2').on('click', function(event) {
+  //   var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
 
-    // get the maker function for the kind of dancer we're supposed to make
-    var dancerMakerFunction = window[dancerMakerFunctionName];
+  //   // get the maker function for the kind of dancer we're supposed to make
+  //   var dancerMakerFunction = window[dancerMakerFunctionName];
 
-    // make a dancer with a random position
+  //   // make a dancer with a random position
 
-    var dancer2 = new dancerMakerFunction(
-      $('body').height() * Math.random(),
-      $('body').width() * Math.random(),
-      Math.random() * 1000
-    );
-    $('body').append(dancer2.$node2);
+  //   var dancer2 = new dancerMakerFunction(
+  //     $('body').height() * Math.random(),
+  //     $('body').width() * Math.random(),
+  //     Math.random() * 1000
+  //   );
+  //   $('body').append(dancer2.$node2);
 
-  });
+  // });
 
   
 });
