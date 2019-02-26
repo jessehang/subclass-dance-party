@@ -1,0 +1,11 @@
+var makeShakingDancer = function(top, left, timeBetweenSteps) {
+    makeDancer.call(this, top, left, timeBetweenSteps);
+  };
+  
+makeShakingDancer.prototype = Object.create(makeDancer.prototype);
+makeShakingDancer.prototype.constructor = makeShakingDancer;
+
+makeShakingDancer.prototype.step = function() {
+  //makeDancer.prototype.step.call(this);
+  this.$node2.toggle();
+};
