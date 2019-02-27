@@ -13,6 +13,11 @@ body, a:link, a:visited, a:active{
   padding:5px 12px;
   float:right;
 }
+.moveDancersToLeft,
+.checkProximity {
+  padding:5px 12px;
+  float: right;
+}
 .topbar{
   height:32px;
   background-color: #555;
@@ -36,6 +41,8 @@ body, a:link, a:visited, a:active{
 .dancer3{
   border: 10px;
   position:absolute;
+  animation: shake 1.0s cubic-bezier(.36,.07,.19,.97) both;
+  animation-iteration-count:infinite;
 }
 
 img {

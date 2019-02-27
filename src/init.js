@@ -1,6 +1,8 @@
 $(document).ready(function() {
   window.dancers = [];
-
+  window.distance = [];
+  console.log(window.dancers);
+  console.log(window.distance);
   $('.addDancerButton').on('click', function(event) {
     /* This function sets up the click handlers for the create-dancer
      * buttons on dancefloor.html. You should only need to make one small change to it.
@@ -29,25 +31,34 @@ $(document).ready(function() {
     );
     $('body').append(dancer.$node);
 
+    dancer.$node.attr("id", window.dancers.length)
+    window.dancers.push({top: dancer.top, left: dancer.left}); 
   });
 
-  // $('.addDancerButton2').on('click', function(event) {
-  //   var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
+  $('.moveDancersToLeft').on('click', function() {
+    // var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
+    $('.dancer').animate({left: '100px'}, 1000, 'linear');
+  });
 
-  //   // get the maker function for the kind of dancer we're supposed to make
-  //   var dancerMakerFunction = window[dancerMakerFunctionName];
+  //Collision Checker
+  /*
+  check to see if either top and left values collide within a 200px block
+   for both 200 positive and negative from the top and left
+  */
+  $('.checkProximity').on('click', function() {
+    for (var i = 0; i < window.dancers.length; i++) {
+      var distance = Math.sqrt((window.dancers[i].top ^ 2) + (window.dancers[i].left ^ 2));
+      window.distance.push(distance);
+    };
+    
+    var firstDistance = window.distance[0];
+    for (var i = 1; i < window.distance.length; i++) {
+      if (Math.abs(firstDistance - window.distance[i]) <= 100) {
+        $(`#${i}`).top = window.top + 10;
+        $(`#${i}`).top = window.dancers[i].left + 10;        
+      }
+    }
+  });
 
-  //   // make a dancer with a random position
 
-  //   var dancer2 = new dancerMakerFunction(
-  //     $('body').height() * Math.random(),
-  //     $('body').width() * Math.random(),
-  //     Math.random() * 1000
-  //   );
-  //   $('body').append(dancer2.$node2);
-
-  // });
-
-  
 });
-
